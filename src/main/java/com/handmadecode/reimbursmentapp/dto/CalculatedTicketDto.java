@@ -11,6 +11,23 @@ public class CalculatedTicketDto {
     private Set<Receipt> receipts;
     private Float sumOfCosts;
     private Integer distance;
+    private Float mileageCosts;
+
+    public Integer getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Integer distance) {
+        this.distance = distance;
+    }
+
+    public Float getMileageCosts() {
+        return mileageCosts;
+    }
+
+    public void setMileageCosts(Float mileageCosts) {
+        this.mileageCosts = mileageCosts;
+    }
 
     public String getTripDateFrom() {
         return tripDateFrom;

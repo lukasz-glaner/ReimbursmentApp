@@ -1,5 +1,5 @@
 <%@ page import="java.util.Set" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
         .expense {
             margin-bottom: 10px;
         }
+
         #add-button {
             display: block;
         }
@@ -22,12 +23,11 @@
 <form action="expensesCalculation" method="post">
     <fieldset>
         <legend>Main data</legend>
-        <label for="tripDateFrom">Enter start date in format dd/mm/yyyy</label>
-        <input type="text" name="tripDateFrom" id="tripDateFrom"><br>
-        <label for="tripDateTo">Enter end date in format dd/mm/yyyy</label>
-        <input type="text" name="tripDateTo" id="tripDateTo"><br>
-        <label for="fullDaysNumber">Full business trip days</label>
-        <input type="number" name="fullDaysNumber" id="fullDaysNumber" required><br>
+        <label for="tripDateFrom">Enter start date in format yyyy-mm-dd</label>
+        <input type="date" name="tripDateFrom" id="tripDateFrom" onchange="updateMinDate()"><br>
+        <label for="tripDateTo">Enter end date in format yyyy-mm-dd</label>
+        <input type="date" name="tripDateTo" id="tripDateTo"><br>
+        <input type="hidden" name="fullDaysNumber" id="fullDaysNumber">
     </fieldset>
 
     <fieldset id="expenses">
@@ -38,7 +38,8 @@
                 <%
                     for (String type : availableReceiptTypes) {
                 %>
-                <option value="<%=type%>"><%=type%></option>
+                <option value="<%=type%>"><%=type%>
+                </option>
                 <%
                     }
                 %>
@@ -57,7 +58,7 @@
         <input type="number" name="distance" id="distance"><br>
     </fieldset>
 
-    <input type="submit" value="Calculate">
+    <input type="submit" value="Calculate" onclick="updateFullDaysNumber()">
 </form>
 <script>
     let expenseCount = 1;
@@ -82,6 +83,7 @@
         newExpenseDiv.innerHTML = selectHTML;
         expensesDiv.insertBefore(newExpenseDiv, addButton);
     }
+
     function deleteExpense() {
         if (expenseCount > 1) {
             const expensesDiv = document.getElementById('expenses');
@@ -90,8 +92,20 @@
             expenseCount--;
         }
     }
+</script>
+<script>
+    function updateMinDate() {
+        const tripDateFrom = document.getElementById('tripDateFrom').value;
+        document.getElementById('tripDateTo').min = tripDateFrom;
+    }
 
-
+    function updateFullDaysNumber() {
+        const tripDateFrom = new Date(document.getElementById('tripDateFrom').value);
+        const tripDateTo = new Date(document.getElementById('tripDateTo').value);
+        const differenceInTime = tripDateTo - tripDateFrom;
+        const fullDaysNumber = differenceInTime / (1000 * 3600 * 24);
+        document.getElementById('fullDaysNumber').value = isNaN(fullDaysNumber) ? "" : fullDaysNumber;
+    }
 </script>
 </body>
 </html>

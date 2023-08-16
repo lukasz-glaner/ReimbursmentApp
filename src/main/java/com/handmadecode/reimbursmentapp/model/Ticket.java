@@ -8,6 +8,7 @@ public class Ticket {
     private String tripDateFrom;
     private String tripDateTo;
     private Set<Receipt> receipts;
+    private Integer distance;
 
     public Integer getDistance() {
         return distance;
@@ -17,7 +18,6 @@ public class Ticket {
         this.distance = distance;
     }
 
-    private Integer distance;
 
     public Ticket() {
     }

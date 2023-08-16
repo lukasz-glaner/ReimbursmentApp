@@ -30,7 +30,7 @@ public class UserDataController extends HttpServlet {
         request.getRequestDispatcher("/calculatedExpenses.jsp").forward(request, response);
     }
 
-    private TicketDto createTicketDto(HttpServletRequest request){
+    private TicketDto createTicketDto(HttpServletRequest request) {
         TicketDto ticketDto = new TicketDto();
         ticketDto.setFullDaysNumber(Integer.valueOf(request.getParameter("fullDaysNumber")));
         ticketDto.setTripDateFrom(request.getParameter("tripDateFrom"));
@@ -48,6 +48,7 @@ public class UserDataController extends HttpServlet {
             receipts.add(receipt);
         }
         ticketDto.setReceipts(receipts);
+        ticketDto.setDistance(Integer.valueOf(request.getParameter("distance")));
         return ticketDto;
     }
 }
