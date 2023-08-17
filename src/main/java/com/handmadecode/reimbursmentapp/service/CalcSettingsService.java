@@ -12,13 +12,13 @@ import java.util.Set;
 public class CalcSettingsService {
 
     public static final float DEFAULT_DAILY_ALLOWANCE = 15.0f;
-    private static final float MILEAGE_COST = 0.3f;
+    public static final float DEFAULT_MILEAGE_COST = 0.3f;
     public static CalcSettings calcSettings;
 
     public void init() {
         calcSettings = new CalcSettings();
         calcSettings.setDailyAllowance(DEFAULT_DAILY_ALLOWANCE);
-        calcSettings.setMileageCost(MILEAGE_COST);
+        calcSettings.setMileageCost(DEFAULT_MILEAGE_COST);
         calcSettings.setAvailableReceiptTypes(new HashSet<>(Set.of("Taxi", "Plane", "Train", "Hotel")));
         Map<String, Float> limits = new HashMap<>();
         limits.put("Taxi", 20.0f);
