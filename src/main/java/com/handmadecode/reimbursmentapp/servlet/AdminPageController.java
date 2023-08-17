@@ -36,14 +36,21 @@ public class AdminPageController extends HttpServlet {
         request.setAttribute("calcSettingsDto", calcSettingsService.calcSettingsMapper(CalcSettingsService.calcSettings));
         request.getRequestDispatcher("/adminPage.jsp").forward(request, response);
     }
-
     private AdminSettingsUpdateDto createAdminSettingsUpdateDto(HttpServletRequest request) {
         AdminSettingsUpdateDto adminSettingsUpdateDto = new AdminSettingsUpdateDto();
+        setBasicSettings(adminSettingsUpdateDto, request);
+        setLimits(adminSettingsUpdateDto, request);
+        setNewReceiptTypesAndLimits(adminSettingsUpdateDto, request);
+        return adminSettingsUpdateDto;
+    }
+    private void setBasicSettings(AdminSettingsUpdateDto adminSettingsUpdateDto, HttpServletRequest request) {
         adminSettingsUpdateDto.setDailyAllowance(Float.parseFloat(request.getParameter("dailyAllowance")));
         adminSettingsUpdateDto.setMileageCost(Float.parseFloat(request.getParameter("mileageCost")));
         adminSettingsUpdateDto.setAvailableReceiptTypes(Collections.singleton(request.getParameter("availableReceiptTypes")));
-        Map<String, Float> limits = new HashMap<>();
+    }
 
+    private void setLimits(AdminSettingsUpdateDto adminSettingsUpdateDto, HttpServletRequest request) {
+        Map<String, Float> limits = new HashMap<>();
         Enumeration<String> parameterNames = request.getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String paramName = parameterNames.nextElement();
@@ -55,7 +62,9 @@ public class AdminPageController extends HttpServlet {
             }
         }
         adminSettingsUpdateDto.setLimits(limits);
+    }
 
+    private void setNewReceiptTypesAndLimits(AdminSettingsUpdateDto adminSettingsUpdateDto, HttpServletRequest request) {
         String[] newReceiptTypes = request.getParameterValues("newReceiptType");
         String[] newLimits = request.getParameterValues("limit");
 
@@ -67,7 +76,38 @@ public class AdminPageController extends HttpServlet {
                 adminSettingsUpdateDto.getNewLimits().put(newReceiptType, limit);
             }
         }
-        return adminSettingsUpdateDto;
-
     }
+
+//    private AdminSettingsUpdateDto createAdminSettingsUpdateDto(HttpServletRequest request) {
+//        AdminSettingsUpdateDto adminSettingsUpdateDto = new AdminSettingsUpdateDto();
+//        adminSettingsUpdateDto.setDailyAllowance(Float.parseFloat(request.getParameter("dailyAllowance")));
+//        adminSettingsUpdateDto.setMileageCost(Float.parseFloat(request.getParameter("mileageCost")));
+//        adminSettingsUpdateDto.setAvailableReceiptTypes(Collections.singleton(request.getParameter("availableReceiptTypes")));
+//        Map<String, Float> limits = new HashMap<>();
+//
+//        Enumeration<String> parameterNames = request.getParameterNames();
+//        while (parameterNames.hasMoreElements()) {
+//            String paramName = parameterNames.nextElement();
+//            if (paramName.startsWith("limits_")) {
+//                String key = paramName.substring(7);
+//                String valueString = request.getParameter(paramName);
+//                Float value = Float.parseFloat(valueString);
+//                limits.put(key, value);
+//            }
+//        }
+//        adminSettingsUpdateDto.setLimits(limits);
+//
+//        String[] newReceiptTypes = request.getParameterValues("newReceiptType");
+//        String[] newLimits = request.getParameterValues("limit");
+//
+//        if (newReceiptTypes != null && newLimits != null) {
+//            adminSettingsUpdateDto.setNewReceiptTypes(Set.of(newReceiptTypes));
+//            for (int i = 0; i < newReceiptTypes.length; i++) {
+//                String newReceiptType = newReceiptTypes[i];
+//                Float limit = Float.parseFloat(newLimits[i]);
+//                adminSettingsUpdateDto.getNewLimits().put(newReceiptType, limit);
+//            }
+//        }
+//        return adminSettingsUpdateDto;
+//    }
 }
