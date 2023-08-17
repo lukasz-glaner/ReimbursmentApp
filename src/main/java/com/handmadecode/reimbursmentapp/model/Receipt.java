@@ -10,6 +10,12 @@ public class Receipt {
     public Receipt() {
     }
 
+    public Receipt(String type, String description, Float cost) {
+        this.type = type;
+        this.description = description;
+        this.cost = cost;
+    }
+
     public String getType() {
         return type;
     }

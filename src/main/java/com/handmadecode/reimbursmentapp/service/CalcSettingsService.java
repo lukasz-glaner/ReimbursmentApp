@@ -19,7 +19,6 @@ public class CalcSettingsService {
         calcSettings = new CalcSettings();
         calcSettings.setDailyAllowance(DEFAULT_DAILY_ALLOWANCE);
         calcSettings.setMileageCost(MILEAGE_COST);
-//        calcSettings.setAvailableReceiptTypes(Set.of("Taxi", "Plane", "Train", "Hotel"));
         calcSettings.setAvailableReceiptTypes(new HashSet<>(Set.of("Taxi", "Plane", "Train", "Hotel")));
         Map<String, Float> limits = new HashMap<>();
         limits.put("Taxi", 20.0f);
