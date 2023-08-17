@@ -19,6 +19,10 @@
 <%
     Set<String> availableReceiptTypes = (Set<String>) request.getAttribute("availableReceiptTypes");
 %>
+
+<a href="adminPage">Go to Admin Page</a><br>
+<a href="index.html">Go to Main Page</a><br>
+
 <h1>Enter all of expenses:</h1>
 <form action="expensesCalculation" method="post">
     <fieldset>
@@ -55,7 +59,7 @@
     <fieldset>
         <legend>Car Usage Reimbursement</legend>
         <label for="distance">Enter driven distance in miles:</label>
-        <input type="number" name="distance" id="distance"><br>
+        <input type="number" name="distance" id="distance" value="0"><br>
     </fieldset>
 
     <input type="submit" value="Calculate" onclick="updateFullDaysNumber()">
@@ -78,7 +82,7 @@
         selectHTML += '</select><br>';
 
         selectHTML += '<label for="description' + expenseCount + '">Description:</label><input type="text" name="description" id="description' + expenseCount + '"><br>';
-        selectHTML += '<label for="cost' + expenseCount + '">Cost:</label><input type="number" name="cost" id="cost' + expenseCount + '" required><br>';
+        selectHTML += '<label for="cost' + expenseCount + '">Cost:</label><input type="number" name="cost" id="cost' + expenseCount + '" value="0" required><br>';
 
         newExpenseDiv.innerHTML = selectHTML;
         expensesDiv.insertBefore(newExpenseDiv, addButton);
@@ -104,7 +108,7 @@
         const tripDateTo = new Date(document.getElementById('tripDateTo').value);
         const differenceInTime = tripDateTo - tripDateFrom;
         const fullDaysNumber = differenceInTime / (1000 * 3600 * 24);
-        document.getElementById('fullDaysNumber').value = isNaN(fullDaysNumber) ? "" : fullDaysNumber;
+        document.getElementById('fullDaysNumber').value = isNaN(fullDaysNumber) ? "0" : fullDaysNumber;
     }
 </script>
 </body>

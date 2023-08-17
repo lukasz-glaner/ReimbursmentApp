@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Hello in admin settings page</title>
+    <title>Admin settings page</title>
 </head>
 <body>
 <%
@@ -14,8 +14,10 @@
     Set<String> availableReceiptTypes = calcSettingsDto.getAvailableReceiptTypes();
     Map<String, Float> limits = calcSettingsDto.getLimits();
 %>
+<a href="userPage">Go to User Page</a><br>
+<a href="index.html">Go to Main Page</a><br><br>
 
-<form action="adminPage" method="post">
+<form action="adminPage" method="post" id="receiptTypeForm">
     <fieldset>
         <legend>Settings</legend>
 
@@ -50,7 +52,51 @@
             %>
         </ul>
     </fieldset>
-    <input type="submit" value="Apply">
+    <br><br>
+    <div id="receiptTypesContainer"></div>
+    <button type="button" onclick="addReceiptTypeField()">Add new receipt type</button><br>
+    <button type="button" onclick="removeReceiptTypeField()">Remove last receipt type</button><br>
+    <input type="submit" value="Apply all">
 </form>
+
+<script>
+    function addReceiptTypeField() {
+        const container = document.getElementById('receiptTypesContainer');
+        const receiptTypeDiv = document.createElement('div');
+        receiptTypeDiv.className = 'receiptTypeDiv';
+
+        const receiptTypeLabel = document.createElement('label');
+        receiptTypeLabel.innerHTML = "New receipt type:";
+        receiptTypeDiv.appendChild(receiptTypeLabel);
+
+        const receiptTypeInput = document.createElement('input');
+        receiptTypeInput.type = "text";
+        receiptTypeInput.name = "newReceiptType";
+        receiptTypeInput.required = true;
+        receiptTypeDiv.appendChild(receiptTypeInput);
+
+        const limitLabel = document.createElement('label');
+        limitLabel.innerHTML = "Cost limit:";
+        receiptTypeDiv.appendChild(limitLabel);
+
+        const limitInput = document.createElement('input');
+        limitInput.type = "number";
+        limitInput.name = "limit";
+        limitInput.required = true;
+        receiptTypeDiv.appendChild(limitInput);
+
+        container.appendChild(receiptTypeDiv);
+    }
+    function removeReceiptTypeField() {
+        const container = document.getElementById('receiptTypesContainer');
+        const receiptTypes = container.getElementsByClassName('receiptTypeDiv');
+        const lastReceiptType = receiptTypes[receiptTypes.length - 1];
+
+        if (lastReceiptType) {
+            lastReceiptType.remove();
+        }
+    }
+
+</script>
 </body>
 </html>

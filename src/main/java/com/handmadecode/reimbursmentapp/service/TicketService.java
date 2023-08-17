@@ -8,10 +8,6 @@ import com.handmadecode.reimbursmentapp.model.Ticket;
 import java.util.Set;
 
 public class TicketService {
-    private static float dailyAllowance = 15.0f;
-    private static float mileageCost = 0.3f;
-    public static Set<String> availableReceiptTypes = Set.of("Taxi", "Plane", "Train", "Hotel");
-
     public CalculatedTicketDto createAndCalculateTicket(TicketDto ticketDto) {
         float sumOfCosts;
 
@@ -25,7 +21,7 @@ public class TicketService {
     }
 
     private Float calculateMileageCosts(Integer distance) {
-        return distance * mileageCost;
+        return distance * CalcSettingsService.calcSettings.getMileageCost();
     }
 
     private Ticket ticketDtoMapper(TicketDto ticketDto) {
@@ -52,7 +48,7 @@ public class TicketService {
     }
 
     private float calculateDailyAllowance(Ticket ticket) {
-        return ticket.getFullDaysNumber() * dailyAllowance;
+        return ticket.getFullDaysNumber() * CalcSettingsService.calcSettings.getDailyAllowance();
     }
 
     private float calculateReceiptsCosts(Set<Receipt> receipts) {

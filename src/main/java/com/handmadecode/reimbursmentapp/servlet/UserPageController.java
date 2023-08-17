@@ -1,6 +1,7 @@
 package com.handmadecode.reimbursmentapp.servlet;
 
 import com.handmadecode.reimbursmentapp.User;
+import com.handmadecode.reimbursmentapp.service.CalcSettingsService;
 import com.handmadecode.reimbursmentapp.service.TicketService;
 
 import javax.servlet.*;
@@ -13,7 +14,7 @@ import java.io.PrintWriter;
 public class UserPageController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("availableReceiptTypes", TicketService.availableReceiptTypes);
+        request.setAttribute("availableReceiptTypes", CalcSettingsService.calcSettings.getAvailableReceiptTypes());
         request.getRequestDispatcher("/userPage.jsp").forward(request, response);
     }
 
