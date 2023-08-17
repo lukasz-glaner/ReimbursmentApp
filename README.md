@@ -5,7 +5,8 @@ ReimbursmentApp is an application written in Java 11, utilizing Tomcat, Maven, a
 This Expense Reimbursement System allows an user to submit money reimbursement requests for different purposes (food, traveling, lodging, or other). 
 Application has a Main Page with links to User Page and Admin Page.
 
-##Features
+## Features
+
 User Page:
 - add some basic data of business trip
 - add expenses related to receipts
@@ -18,7 +19,7 @@ Admin Page:
 - add new type of receipts
 - add limits for costs
 
-##Development possibilities
+## Future development possibilities
 - add user management
 - add role management related to users
 - add limits checking 
