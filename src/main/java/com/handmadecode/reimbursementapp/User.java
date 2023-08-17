@@ -1,4 +1,4 @@
-package com.handmadecode.reimbursmentapp;
+package com.handmadecode.reimbursementapp;
 
 public class User {
     private String username;

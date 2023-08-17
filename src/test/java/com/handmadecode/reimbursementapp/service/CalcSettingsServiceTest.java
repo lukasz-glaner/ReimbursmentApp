@@ -1,9 +1,8 @@
 package com.handmadecode.reimbursementapp.service;
 
-import com.handmadecode.reimbursmentapp.dto.AdminSettingsUpdateDto;
-import com.handmadecode.reimbursmentapp.dto.CalcSettingsDto;
-import com.handmadecode.reimbursmentapp.model.CalcSettings;
-import com.handmadecode.reimbursmentapp.service.CalcSettingsService;
+import com.handmadecode.reimbursementapp.dto.AdminSettingsUpdateDto;
+import com.handmadecode.reimbursementapp.dto.CalcSettingsDto;
+import com.handmadecode.reimbursementapp.model.CalcSettings;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

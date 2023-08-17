@@ -1,16 +1,13 @@
-package com.handmadecode.reimbursmentapp.dto;
+package com.handmadecode.reimbursementapp.dto;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class AdminSettingsUpdateDto {
+public class CalcSettingsDto {
     private float dailyAllowance;
     private float mileageCost;
     private Set<String> availableReceiptTypes;
-    private Map<String,Float> limits = new HashMap<>();
-    private Set<String> newReceiptTypes;
-    private Map<String,Float> newLimits = new HashMap<>();
+    private Map<String,Float> limits;
 
     public float getDailyAllowance() {
         return dailyAllowance;
@@ -42,21 +39,5 @@ public class AdminSettingsUpdateDto {
 
     public void setLimits(Map<String, Float> limits) {
         this.limits = limits;
-    }
-
-    public Set<String> getNewReceiptTypes() {
-        return newReceiptTypes;
-    }
-
-    public void setNewReceiptTypes(Set<String> newReceiptTypes) {
-        this.newReceiptTypes = newReceiptTypes;
-    }
-
-    public Map<String, Float> getNewLimits() {
-        return newLimits;
-    }
-
-    public void setNewLimits(Map<String, Float> newLimits) {
-        this.newLimits = newLimits;
     }
 }

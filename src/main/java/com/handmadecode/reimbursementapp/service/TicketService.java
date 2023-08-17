@@ -1,9 +1,9 @@
-package com.handmadecode.reimbursmentapp.service;
+package com.handmadecode.reimbursementapp.service;
 
-import com.handmadecode.reimbursmentapp.dto.CalculatedTicketDto;
-import com.handmadecode.reimbursmentapp.dto.TicketDto;
-import com.handmadecode.reimbursmentapp.model.Receipt;
-import com.handmadecode.reimbursmentapp.model.Ticket;
+import com.handmadecode.reimbursementapp.dto.CalculatedTicketDto;
+import com.handmadecode.reimbursementapp.dto.TicketDto;
+import com.handmadecode.reimbursementapp.model.Receipt;
+import com.handmadecode.reimbursementapp.model.Ticket;
 
 import java.util.Set;
 

@@ -1,5 +1,5 @@
-<%@ page import="com.handmadecode.reimbursmentapp.dto.CalculatedTicketDto" %>
-<%@ page import="com.handmadecode.reimbursmentapp.model.Receipt" %>
+<%@ page import="com.handmadecode.reimbursementapp.dto.CalculatedTicketDto" %>
+<%@ page import="com.handmadecode.reimbursementapp.model.Receipt" %>
 <%@ page import="java.util.Set" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -60,8 +60,7 @@
 <p><strong>Car usage costs:</strong> <%=mileageCosts%>
 </p>
 
-<h2><p style="color: red;"><strong>Total cost for reimbursement:</strong> <%=String.format("%s", sumOfCosts)%> dollars
-</p></h2>
+<h2><p style="color: red;"><strong>Total cost for reimbursement:</strong> <%=String.format("%s", sumOfCosts)%> dollars</p></h2>
 
 </body>
 </html>

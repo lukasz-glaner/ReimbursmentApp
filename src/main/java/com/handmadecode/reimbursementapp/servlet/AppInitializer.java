@@ -1,6 +1,6 @@
-package com.handmadecode.reimbursmentapp.servlet;
+package com.handmadecode.reimbursementapp.servlet;
 
-import com.handmadecode.reimbursmentapp.service.CalcSettingsService;
+import com.handmadecode.reimbursementapp.service.CalcSettingsService;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

@@ -1,8 +1,8 @@
-package com.handmadecode.reimbursmentapp.service;
+package com.handmadecode.reimbursementapp.service;
 
-import com.handmadecode.reimbursmentapp.dto.AdminSettingsUpdateDto;
-import com.handmadecode.reimbursmentapp.dto.CalcSettingsDto;
-import com.handmadecode.reimbursmentapp.model.CalcSettings;
+import com.handmadecode.reimbursementapp.dto.AdminSettingsUpdateDto;
+import com.handmadecode.reimbursementapp.dto.CalcSettingsDto;
+import com.handmadecode.reimbursementapp.model.CalcSettings;
 
 import java.util.HashMap;
 import java.util.HashSet;

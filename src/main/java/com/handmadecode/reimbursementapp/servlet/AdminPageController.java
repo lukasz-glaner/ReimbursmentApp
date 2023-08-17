@@ -1,8 +1,8 @@
-package com.handmadecode.reimbursmentapp.servlet;
+package com.handmadecode.reimbursementapp.servlet;
 
-import com.handmadecode.reimbursmentapp.dto.AdminSettingsUpdateDto;
-import com.handmadecode.reimbursmentapp.model.CalcSettings;
-import com.handmadecode.reimbursmentapp.service.CalcSettingsService;
+import com.handmadecode.reimbursementapp.dto.AdminSettingsUpdateDto;
+import com.handmadecode.reimbursementapp.model.CalcSettings;
+import com.handmadecode.reimbursementapp.service.CalcSettingsService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
-import static com.handmadecode.reimbursmentapp.service.CalcSettingsService.calcSettings;
+import static com.handmadecode.reimbursementapp.service.CalcSettingsService.calcSettings;
 
 @WebServlet(name = "AdminPage", value = "/adminPage")
 public class AdminPageController extends HttpServlet {

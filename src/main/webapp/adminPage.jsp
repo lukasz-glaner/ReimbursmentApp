@@ -1,7 +1,7 @@
-<%@ page import="com.handmadecode.reimbursmentapp.dto.CalcSettingsDto" %>
+<%@ page import="com.handmadecode.reimbursementapp.dto.CalcSettingsDto" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="java.util.Map" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Admin settings page</title>

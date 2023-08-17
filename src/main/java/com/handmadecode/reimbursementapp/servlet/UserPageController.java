@@ -1,14 +1,11 @@
-package com.handmadecode.reimbursmentapp.servlet;
+package com.handmadecode.reimbursementapp.servlet;
 
-import com.handmadecode.reimbursmentapp.User;
-import com.handmadecode.reimbursmentapp.service.CalcSettingsService;
-import com.handmadecode.reimbursmentapp.service.TicketService;
+import com.handmadecode.reimbursementapp.service.CalcSettingsService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "UserPage", value = "/userPage")
 public class UserPageController extends HttpServlet {

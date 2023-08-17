@@ -1,4 +1,4 @@
-package com.handmadecode.reimbursmentapp.model;
+package com.handmadecode.reimbursementapp.model;
 
 import java.util.Map;
 import java.util.Objects;

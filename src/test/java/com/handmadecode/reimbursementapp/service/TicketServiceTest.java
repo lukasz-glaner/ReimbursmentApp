@@ -1,11 +1,9 @@
 package com.handmadecode.reimbursementapp.service;
 
-import com.handmadecode.reimbursmentapp.dto.CalculatedTicketDto;
-import com.handmadecode.reimbursmentapp.dto.TicketDto;
-import com.handmadecode.reimbursmentapp.model.CalcSettings;
-import com.handmadecode.reimbursmentapp.model.Receipt;
-import com.handmadecode.reimbursmentapp.service.CalcSettingsService;
-import com.handmadecode.reimbursmentapp.service.TicketService;
+import com.handmadecode.reimbursementapp.dto.CalculatedTicketDto;
+import com.handmadecode.reimbursementapp.dto.TicketDto;
+import com.handmadecode.reimbursementapp.model.CalcSettings;
+import com.handmadecode.reimbursementapp.model.Receipt;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;

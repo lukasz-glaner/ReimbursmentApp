@@ -1,6 +1,6 @@
-# ReimbursmentApp
+# ReimbursementApp
 
-ReimbursmentApp is an application written in Java 11, utilizing Tomcat, Maven, and JUnit.
+ReimbursementApp is an application written in Java 11, utilizing Tomcat, Maven, and JUnit.
 
 This Expense Reimbursement System allows an user to submit money reimbursement requests for different purposes (food, traveling, lodging, or other). 
 Application has a Main Page with links to User Page and Admin Page.

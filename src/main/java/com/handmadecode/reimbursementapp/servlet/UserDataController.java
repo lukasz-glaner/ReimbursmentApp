@@ -1,9 +1,9 @@
-package com.handmadecode.reimbursmentapp.servlet;
+package com.handmadecode.reimbursementapp.servlet;
 
-import com.handmadecode.reimbursmentapp.dto.CalculatedTicketDto;
-import com.handmadecode.reimbursmentapp.dto.TicketDto;
-import com.handmadecode.reimbursmentapp.model.Receipt;
-import com.handmadecode.reimbursmentapp.service.TicketService;
+import com.handmadecode.reimbursementapp.dto.CalculatedTicketDto;
+import com.handmadecode.reimbursementapp.dto.TicketDto;
+import com.handmadecode.reimbursementapp.model.Receipt;
+import com.handmadecode.reimbursementapp.service.TicketService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

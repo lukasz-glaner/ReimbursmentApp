@@ -1,17 +1,14 @@
-package com.handmadecode.reimbursmentapp.dto;
+package com.handmadecode.reimbursementapp.model;
 
-import com.handmadecode.reimbursmentapp.model.Receipt;
-
+import java.util.Objects;
 import java.util.Set;
 
-public class CalculatedTicketDto {
+public class Ticket {
     private Integer fullDaysNumber;
     private String tripDateFrom;
     private String tripDateTo;
     private Set<Receipt> receipts;
-    private Float sumOfCosts;
     private Integer distance;
-    private Float mileageCosts;
 
     public Integer getDistance() {
         return distance;
@@ -21,12 +18,8 @@ public class CalculatedTicketDto {
         this.distance = distance;
     }
 
-    public Float getMileageCosts() {
-        return mileageCosts;
-    }
 
-    public void setMileageCosts(Float mileageCosts) {
-        this.mileageCosts = mileageCosts;
+    public Ticket() {
     }
 
     public String getTripDateFrom() {
@@ -61,11 +54,27 @@ public class CalculatedTicketDto {
         this.fullDaysNumber = fullDaysNumber;
     }
 
-    public Float getSumOfCosts() {
-        return sumOfCosts;
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "fullDaysNumber=" + fullDaysNumber +
+                ", tripDateFrom='" + tripDateFrom + '\'' +
+                ", tripDateTo='" + tripDateTo + '\'' +
+                ", receipts=" + receipts +
+                ", distance=" + distance +
+                '}';
     }
 
-    public void setSumOfCosts(Float sumOfCosts) {
-        this.sumOfCosts = sumOfCosts;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return Objects.equals(fullDaysNumber, ticket.fullDaysNumber) && Objects.equals(tripDateFrom, ticket.tripDateFrom) && Objects.equals(tripDateTo, ticket.tripDateTo) && Objects.equals(receipts, ticket.receipts) && Objects.equals(distance, ticket.distance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullDaysNumber, tripDateFrom, tripDateTo, receipts, distance);
     }
 }

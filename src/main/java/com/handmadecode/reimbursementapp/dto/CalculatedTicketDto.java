@@ -1,14 +1,17 @@
-package com.handmadecode.reimbursmentapp.model;
+package com.handmadecode.reimbursementapp.dto;
 
-import java.util.Objects;
+import com.handmadecode.reimbursementapp.model.Receipt;
+
 import java.util.Set;
 
-public class Ticket {
+public class CalculatedTicketDto {
     private Integer fullDaysNumber;
     private String tripDateFrom;
     private String tripDateTo;
     private Set<Receipt> receipts;
+    private Float sumOfCosts;
     private Integer distance;
+    private Float mileageCosts;
 
     public Integer getDistance() {
         return distance;
@@ -18,8 +21,12 @@ public class Ticket {
         this.distance = distance;
     }
 
+    public Float getMileageCosts() {
+        return mileageCosts;
+    }
 
-    public Ticket() {
+    public void setMileageCosts(Float mileageCosts) {
+        this.mileageCosts = mileageCosts;
     }
 
     public String getTripDateFrom() {
@@ -54,27 +61,11 @@ public class Ticket {
         this.fullDaysNumber = fullDaysNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                "fullDaysNumber=" + fullDaysNumber +
-                ", tripDateFrom='" + tripDateFrom + '\'' +
-                ", tripDateTo='" + tripDateTo + '\'' +
-                ", receipts=" + receipts +
-                ", distance=" + distance +
-                '}';
+    public Float getSumOfCosts() {
+        return sumOfCosts;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ticket ticket = (Ticket) o;
-        return Objects.equals(fullDaysNumber, ticket.fullDaysNumber) && Objects.equals(tripDateFrom, ticket.tripDateFrom) && Objects.equals(tripDateTo, ticket.tripDateTo) && Objects.equals(receipts, ticket.receipts) && Objects.equals(distance, ticket.distance);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(fullDaysNumber, tripDateFrom, tripDateTo, receipts, distance);
+    public void setSumOfCosts(Float sumOfCosts) {
+        this.sumOfCosts = sumOfCosts;
     }
 }

@@ -1,6 +1,6 @@
-package com.handmadecode.reimbursmentapp.dto;
+package com.handmadecode.reimbursementapp.dto;
 
-import com.handmadecode.reimbursmentapp.model.Receipt;
+import com.handmadecode.reimbursementapp.model.Receipt;
 
 import java.util.Set;
 
